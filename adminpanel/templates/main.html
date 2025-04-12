@@ -711,9 +711,7 @@
                     <a href="#" class="nav-item" id="learnToggle" aria-expanded="false">Learn</a>
                     <div class="dropdown-content">
                         <a href="/courses" class="dropdown-item"><span>📚</span> Lessons</a>
-                        <a href="/speechquizcard" class="dropdown-item"><span>🎮</span> Games</a>
-                        <a href="/index1" class="dropdown-item"><span>✏️</span> Practice</a>
-                        <a href="/about" class="dropdown-item"><span>✏️</span> About</a>
+                        <a href="/index1" class="dropdown-item"><span>✏️</span> Games</a>
                     </div>
                 </div>
 
@@ -722,9 +720,7 @@
                     <div class="dropdown-content">
                         <a href="/texttospeech" class="dropdown-item" ><span>🔊</span> Text to Speech</a>
                         <a href="/speechtotext" class="dropdown-item"><span>📏</span> speech to text</a>
-                        <a href="/image" class="dropdown-item" onclick="toggleColorOverlay()"><span>🎨</span> Image to text</a>
-                        <a href="/wordexplorer" class="dropdown-item"><span>🔤</span>wordexplorer</a>
-                        <a href="/spell" class="dropdown-item"><span>🔤</span> spell checker</a>
+
                     </div>
                 </div>
                 <div class="dropdown" id="toolsDropdown">
@@ -732,27 +728,25 @@
                     <div class="dropdown-content">
                         <a href="/profiles" class="dropdown-item" ><span>🔊</span> Profile</a>
                         {% if user.is_authenticated %}
-                        <a   class="dropdown-item" href="{% url 'mymistakes' postid=request.user.id %}">🔊mymistakes</a>
                             <a   class="dropdown-item" href="/logout">🔊Logout</a>
                         {% else %}
                             <a class="text-light text-decoration-none" href="/register">Register</a>
                             <a class="text-light text-decoration-none" href="/login">Login</a>
                         {% endif %}
                         <a href="/contact" class="dropdown-item"><span>🔤</span>contact</a>
-                        <a href="/spell" class="dropdown-item"><span>🔤</span> spell checker</a>
                     </div>
                 </div>
-
-                
 
                 <div class="dropdown" id="settingsDropdown">
                     <a href="#" class="nav-item" id="settingsToggle" aria-expanded="false">Settings</a>
                     <div class="dropdown-content">
                         <a href="#" class="dropdown-item" onclick="toggleDarkMode()"><span id="theme-icon">🌓</span> Theme</a>
                         <a href="#" class="dropdown-item" onclick="toggleDyslexiaFont()"><span>👁️</span> Dyslexia Font</a>
-                        <a href="#accessibility" class="dropdown-item"><span>♿</span> Accessibility</a>
                         <a href="/teachers" class="dropdown-item"><span>🔤</span>Teacher</a>
                     </div>
+                </div>
+                <div class="dropdown" id="settingsDropdown">
+                    <a href="/about" class="nav-item" id="settingsToggle" aria-expanded="false">About</a>
                 </div>
             </div>
         </div>
@@ -766,44 +760,6 @@
             <div class="button-group">
                 <a href="#lessons" class="button button-primary">Start Learning</a>
                 <a href="#tools" class="button button-outline">Explore Tools</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section features" id="features">
-        <h2 class="section-title">Why Choose EmpowerLearn?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <a href='/courses' style="text-decoration: none; color:rgb(8, 8, 8);">  <h3>Personalized Learning</h3></a>
-                <a href='/courses'  style="text-decoration: none; color:rgb(129, 127, 125);" ><p>Adaptive lessons that match your pace and learning style with AI-powered recommendations.</p></a>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛠️</div>
-                <a href='/dyslexiatools' style="text-decoration: none; color:rgb(8, 8, 8);">           <h3>Accessibility Tools</h3></a>
-                <a href='/dyslexiatools' style="text-decoration: none; color:rgb(129, 127, 125);"><p>Custom text formatting, reading rulers, color overlays, and text-to-speech to support your needs.</p></a>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <a href='/game' style="text-decoration: none; color:rgb(8, 8, 8);">    <h3>its demo game</h3></a>
-                <a href='/game' style="text-decoration: none; color:rgb(129, 127, 125);">       <p>Monitor your achievements and learning journey with detailed visual reports.</p></a>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <a href='/index1' style="text-decoration: none; color:rgb(8, 8, 8);">              <h3>Interactive Games</h3></a>
-                <a href='/index1' style="text-decoration: none; color:rgb(129, 127, 125);">     <p>Learn through engaging educational games designed to strengthen key skills.</p></a>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <a href='/dineshstory' style="text-decoration: none; color:rgb(8, 8, 8);">              <h3>Story telling</h3></a>
-                <a href='/dineshstory' style="text-decoration: none; color:rgb(129, 127, 125);">     <p>Learn through engaging educational games designed to strengthen key skills.</p></a>
-            </div>
-        
-            <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <a href='/speechquizcard' style="text-decoration: none; color:rgb(8, 8, 8);">        <h3>Writing Support</h3></a>
-                <a href='/speechquizcard' style="text-decoration: none; color:rgb(129, 127, 125);">         <p>Tools to help with spelling, grammar, and organization of written work.</p></a>
             </div>
         </div>
     </section>
@@ -825,7 +781,7 @@
             <div class="lesson-card">
                 <h3>Spelling Practice</h3>
                 <p>Learn common patterns and tricky words through repetition.</p>
-             <a href='/speechquizcard' >  <button class="button button-primary" >Start Lesson</button></a>
+             <a href='#' >  <button class="button button-primary" >Start Lesson</button></a>
             </div>
         </div>
     </section>
@@ -834,18 +790,6 @@
     <section class="section tools" id="tools">
         <h2 class="section-title">Empowering Tools</h2>
         <div class="tools-grid">
-            <div class="tool-card">
-                <h3>Text to Speech</h3>
-                <p>Listen to any text read aloud to improve comprehension.</p>
-                <textarea id="speechText" placeholder="Enter text to read aloud..." rows="4" style="width: 100%; margin: 1rem 0; padding: 0.5rem; border-radius: var(--potato);"></textarea>
-                <select id="voiceSelect" style="width: 100%; margin: 0.5rem 0; padding: 0.5rem;"></select>
-                <div style="display: flex; gap: 0.5rem;">
-                    <button class="button button-primary" onclick="speak()">Play</button>
-                    <button class="button button-outline" onclick="pauseSpeech()">Pause</button>
-                    <button class="button button-outline" onclick="stopSpeech()">Stop</button>
-                </div>
-            </div>
-
             <div class="tool-card">
                 <h3>Reading Ruler</h3>
                 <p>Focus on text with a guide that follows your cursor.</p>
@@ -906,43 +850,15 @@
         </div>
     </section>
 
-    <!-- Games Section -->
-    <section class="section game-section" id="games">
-        <h2 class="section-title">Interactive Learning Games</h2>
-        <div class="game-container">
-            <div class="word-builder">
-                <div class="hint-container" id="wordHint"></div>
-                <div class="game-area">
-                    <div class="letter-container" id="selectedLetters"></div>
-                    <div class="letter-container" id="availableLetters"></div>
-                    <div class="button-group">
-                        <button class="button button-primary" onclick="checkWord()">Submit</button>
-                        <button class="button button-outline" onclick="resetGame()">Reset</button>
-                    </div>
-                    <div id="gameResult"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Progress Section -->
-   
 
-    <!-- Floating Action Button -->
-   
-    <div class="fab"  aria-label="Open accessibility tools"> <a href="/home" class="image-link">
-        <img src="https://c.tenor.com/CigpzapemsoAAAAC/hi-robot.gif" alt="Dyslexia tools" class="image-effect" style="width: 70px; height: 70px;  z-index: 1000;">
-    </a></div>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="/about" class="footer-link">About us</a>
                 <a href="#" class="footer-link">Terms of Service</a>
                 <a href="#" class="footer-link">Contact Us</a>
             </div>
-            <p>© 2025 EmpowerLearn. All rights reserved.</p>
         </div>
     </footer>
 
@@ -972,45 +888,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        // Text to Speech
-        let utterance = new SpeechSynthesisUtterance();
-        utterance.rate = 1;
-        utterance.pitch = 1;
-
-        function populateVoices() {
-            const voices = speechSynthesis.getVoices();
-            const voiceSelect = document.getElementById('voiceSelect');
-            voiceSelect.innerHTML = '';
-            voices.forEach(voice => {
-                const option = document.createElement('option');
-                option.textContent = `${voice.name} (${voice.lang})`;
-                option.value = voice.name;
-                voiceSelect.appendChild(option);
-            });
-            utterance.voice = voices[0];
-            voiceSelect.onchange = () => {
-                utterance.voice = voices.find(v => v.name === voiceSelect.value);
-            };
-        }
-        speechSynthesis.onvoiceschanged = populateVoices;
-
-        function speak() {
-            utterance.text = document.getElementById('speechText').value;
-            window.speechSynthesis.speak(utterance);
-        }
-
-        function pauseSpeech() {
-            window.speechSynthesis.pause();
-        }
-
-        function stopSpeech() {
-            window.speechSynthesis.cancel();
-        }
-
-        function toggleTextToSpeech() {
-            document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
-        }
 
         // Reading Ruler
         let rulerActive = false;
