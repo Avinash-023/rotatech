@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* General container styling */
+    .container-fluid {
+        padding: 20px;
+        background-color:hsl(280, 85%, 60%);
+    }
+
+    /* Card Styling */
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    /* Image inside card */
+    .card img {
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    /* Card Title */
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Card Text */
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Button styling */
+    .btn-info {
+        background-color: #17a2b8;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-info:hover {
+        background-color: #138496;
+    }
+
+    /* Row and Column Styling */
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .col-md-4 img {
+        border-radius: 10px;
+    }
+
+    /* No posts message */
+    .no-posts {
+        font-size: 1.2rem;
+        color: #888;
+        font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 15px;
+        }
+
+        .col-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .card img {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row my-2">
+        <div class="col">
+            <h2>{{ blogtitle | default:"No posts available" }}</h2>
+        </div>
+    </div>
+
+    <div class="row m-3">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="col-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- Check if the post has an image, if not, show a placeholder image -->
+                                    <img style="height: 300px; width: 300px" src="{{ post.formattedimgurl }}" class="img-fluid" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <!-- Truncate title after 5 words and content after 100 characters -->
+                                    <h5 class="card-title">{{ post.title|truncatewords:5 }}</h5>
+                                    <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                                    <a type="button" class="btn btn-info" href="{% url 'attemptcourses' postid=post.id %}">Go to Courses</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-posts">No posts available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
